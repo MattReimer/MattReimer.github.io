@@ -1,3 +1,27 @@
-name: Your New Jekyll Site
-markdown: redcarpet
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+name: "Matt Reimer"
+description: "Some fun things I've done"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - '*.yml'
+  - sass
+  - config.rb
+  - scss
+  - env.sh
+  - '*.sh'
+  - '*.scss'
+  - '*.BAK'
+  - TMP/*
+
 pygments: true
+markdown:      redcarpet
+markdown_ext:  markdown,mkd,mkdn,md
+
+
+host:        127.0.0.1
+port:        4000
+baseurl:     /
+url:         http://MattReimer.github.io/
+lsi:         false

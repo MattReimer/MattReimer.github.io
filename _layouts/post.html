@@ -1,9 +1,58 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
 
-<div class="post">
-{{ content }}
-</div>
+<div class="top-strip"></div>
+<main class="content row">
+  <section class="container columns large-12">
+  	<div class="row">
+  		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h5>{{ page.date | date: "%d %B %Y" }}</h5>
+				<h1 class="content">{{page.title}}</h1>
+				<section>
+
+				{% if page.series %}
+					<p><a href="#{{page.series | cgi_escape}}">This post is part of a series: {{page.series}}</a></p>
+				{% endif %}
+
+					{{ content }}
+					<hr>
+				{% if page.series %}
+					<h4><a name="{{page.series | cgi_escape}}"/></a>This post is part of a series: {{page.series}}</h4>
+
+					<ol class="entries">
+					{% assign sorted_posts = site.posts | sort:"date" %}
+					{% for seriespost in sorted_posts %}
+					  {% if seriespost.series contains page.series %}
+					    <li>
+					      <a href="{{ seriespost.url }}">
+					          {{ seriespost.title }} 
+					      </a>
+					      <span>{{ seriespost.date | date: "%d %B %Y" }}</span>
+					    </li>
+					  {% endif %}
+					{% endfor %}
+					</ol>
+					<hr>
+				{% endif %}
+
+
+				</section>
+				<section>
+					{% if page.previous %} 
+							<a rel="prev" class="a-hover left" href="{{ page.previous.url }}">&lt; {{ page.previous.title }}</a>
+						{% endif %}
+						{% if page.next %} 
+							<a rel="next" class="a-hover right"href="{{ page.next.url }}">{{ page.next.title }} &gt;</a>
+					{% endif %}
+				</section>
+
+			</article>
+		</div>
+	</section>
+</main>

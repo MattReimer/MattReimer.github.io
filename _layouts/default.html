@@ -1,44 +1,109 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if page.title %} {{ page.title }} {% endif %}</title>
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+  </head>
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+	<body>
+	<!-- Header
+	    ================================================== -->
 
-    </head>
-    <body>
+<a href="https://github.com/MattReimer/my-workflow/tree/gh-pages"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+        
+	<header>
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+	</header>
 
-          {{ content }}
 
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
+	{{ content }}
+
+	<footer class="panel">
+        <div class="row">
+        <div class="columns large-6">
+            <ul class="inline">
+                <li class=""><a href="http://lifeoutthewindow.com/contact.html">Contact</a></li>
+            </ul>
         </div>
+        <div class="columns large-6">
+            <h4><a href="http://lifeoutthewindow.com">About Me</a></h4>
+            <p>The site is designed using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and <a href="http://foundation.zurb.com" target="_blank">Foundation</a> framework.</p>
+        </div>
+        </div>
+	</footer>
 
-    </body>
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+    <script src="/bower_components/jquery/jquery.js"></script>
+    <script src="/bower_components/foundation/js/foundation.min.js"></script>
+
+
+    <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="/js/URI.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="/js/app.js"></script>
+
+
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+  {{#entries}}
+    <article>
+      <h3>
+        {{#date}}<small><time datetime="{{pubdate}}" pubdate>{{displaydate}}</time></small>{{/date}}
+        <a href="{{url}}">{{title}}</a>
+      </h3>
+    </article>
+  {{/entries}}
+</script>
+{% endraw %}
+
+    <!-- AddThis Smart Layers BEGIN -->
+    <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52d838a7212c433b"></script>
+    <script type="text/javascript">
+      addthis.layers({
+        'theme' : 'transparent',
+        'share' : {
+          'position' : 'left',
+          'numPreferredServices' : 5
+        },  
+        'whatsnext' : {},  
+        'recommended' : {} 
+      });
+    </script>
+    <!-- AddThis Smart Layers END -->
+
+
+    <!-- Analytics
+    ================================================== -->
+           <script type="text/javascript">//<![CDATA[
+            // 
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1240540-9']);
+                            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+            //]]></script>
+	</body>
 </html>
